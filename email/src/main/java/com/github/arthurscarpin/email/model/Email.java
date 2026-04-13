@@ -3,6 +3,7 @@ package com.github.arthurscarpin.email.model;
 import com.github.arthurscarpin.email.enums.EmailStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
@@ -12,9 +13,10 @@ import java.util.UUID;
 @Table(name = "tb_email")
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
 public class Email {
 
-    private final long serialVersionUUID = 1L;
+    private static final long serialVersionUUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -28,10 +30,11 @@ public class Email {
 
     private String subject;
 
-    @Column(columnDefinition = "BODY")
+    @Column(columnDefinition = "TEXT")
     private String body;
 
     private LocalDateTime sendDate;
 
+    @Enumerated(EnumType.STRING)
     private EmailStatus status;
 }
