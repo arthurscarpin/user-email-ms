@@ -61,7 +61,7 @@ public interface UserControllerDoc {
             @ApiResponse(responseCode = "404", description = "User not found"),
             @ApiResponse(responseCode = "500", description = "Internal server error")
     })
-    public ResponseEntity<User> updateById(@PathVariable UUID id, @RequestBody UserDTO dto);
+    ResponseEntity<User> updateById(@PathVariable UUID id, @RequestBody UserDTO dto);
 
     @Operation(summary = "Delete a user", description = "Deletes a user by their ID")
     @ApiResponses(value = {
