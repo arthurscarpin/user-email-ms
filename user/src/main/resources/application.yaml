@@ -28,7 +28,7 @@ spring:
     password: ${RABBITMQ_PASSWORD}
     virtual-host: ${RABBITMQ_VIRTUAL_HOST}
     ssl:
-      enabled: true
+      enabled: false
 
 server:
     port: 8081
