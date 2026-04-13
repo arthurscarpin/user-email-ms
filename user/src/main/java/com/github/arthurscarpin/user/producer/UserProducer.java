@@ -4,6 +4,7 @@ import com.github.arthurscarpin.user.dto.EmailDTO;
 import com.github.arthurscarpin.user.model.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -12,7 +13,8 @@ public class UserProducer {
 
     private final RabbitTemplate template;
 
-    private final String routingKey = "email-queue";
+    @Value("${rabbitmq.routing-key}")
+    private String routingKey;
 
     public void publishEvent(User user) {
         var emailDTO = new EmailDTO();

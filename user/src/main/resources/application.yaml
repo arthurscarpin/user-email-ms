@@ -27,6 +27,7 @@ spring:
     username: ${RABBITMQ_USERNAME}
     password: ${RABBITMQ_PASSWORD}
     virtual-host: ${RABBITMQ_VIRTUAL_HOST}
+    routing-key: ${RABBITMQ_ROUTING_KEY}
     ssl:
       enabled: false
 
